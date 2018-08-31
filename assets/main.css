@@ -1,5 +1,12 @@
 
 .jumbotron {
-    background-color:grey; !important; 
+    background-color:transparent   !important; 
 }
 
+.green {
+    color:#69F0AE;
+}   
+
+.small{
+    width: 40rem;
+}
