@@ -1,11 +1,15 @@
 
 
 
+function call(){
 
-function test(){
-    var x = document.getElementById("ticker").value;
+  var input = document.getElementById("ticker").value;
+  test(input);
+}
+
+function test(ticker){
     //var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/103b07ef04d782146176e5e9f5408e46/"+ latitude + "," +longitude;
-    var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=+x+&interval=5min&apikey=GADBOCMLVZQZV9IS"
+    var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="+ticker+"&interval=5min&apikey=GADBOCMLVZQZV9IS";
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
     request.onload = function(){
