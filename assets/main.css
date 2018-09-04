@@ -4,10 +4,22 @@
     background-color:transparent;
 }
 
+.hidden{
+    display:none;
+}
+
+.unhide{
+    display:show;
+}
+
 .green {
     color:#69F0AE;
 }   
 
 .small{
     width: 40rem;
+}
+
+#cards{
+    display: none;
 }

@@ -16,6 +16,14 @@ var button = document.getElementById('track-btn').addEventListener('click', butt
 
  
 function buttonClick(e){
+  var cards = document.getElementById("card-div");
+  
+  if(cards){
+    if(cards.className == 'card mt-5 hidden'){
+      cards.className = 'card mt-5 unhide';
+    }
+  }
+
   e.preventDefault();
   var newItem = document.getElementById('ticker').value;
   test(newItem);
@@ -43,7 +51,8 @@ function test(ticker){
       var data = JSON.parse(this.responseText);
       console.log("Success");
       console.log(data);
-      if(typeof data != undefined){
+      if(data["Global Quote"] != " "){
+        console.log("Entered the function");
         renderData(data);
       }
       //console.log(data["Global Quote"]["01. symbol"]);
@@ -67,8 +76,18 @@ function renderData(data){
   var tickerSymbol = data["Global Quote"]["01. symbol"];
   var newTicker = document.createElement('li');
   newTicker.className = 'list-group-item';
+
+  //var newPrice = document.createElement('span');
+  var tickerPrice = data["Global Quote"]["05. price"];
+
+
   newTicker.appendChild(document.createTextNode(tickerSymbol));
+  //newPrice.appendChild(document.createTextNode(tickerPrice));
+
+
+
   itemList.appendChild(newTicker);
+  //itemList.appendChild(newPrice);
 }
 
 
