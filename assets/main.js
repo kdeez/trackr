@@ -6,7 +6,7 @@
 var input = document.getElementById('form');
 
 /*Variable directing the ID of the ul containing the tickers*/
-var itemList = document.getElementById('list');
+var itemList = document.getElementById('table');
 
 /*Event listener that is listening for a click whenever the Track button is clicked on
   and calls buttonClick function*/
@@ -18,11 +18,11 @@ var button = document.getElementById('track-btn').addEventListener('click', butt
 function buttonClick(e){
   var cards = document.getElementById("card-div");
   
-  if(cards){
+  /*if(cards){
     if(cards.className == 'card mt-5 hidden'){
       cards.className = 'card mt-5 unhide';
     }
-  }
+  }*/
 
   e.preventDefault();
   var newItem = document.getElementById('ticker').value;
@@ -73,8 +73,8 @@ function test(ticker){
   render the data */
 function renderData(data){
   //console.log(data);
-  var tickerSymbol = data["Global Quote"]["01. symbol"];
-  var newTicker = document.createElement('li');
+ /* 
+  var newTicker = document.createElement('tr');
   newTicker.className = 'list-group-item';
 
   //var newPrice = document.createElement('span');
@@ -86,7 +86,28 @@ function renderData(data){
 
 
 
+  itemList.appendChild(newTicker);*/
+
+  var tickerSymbol = data["Global Quote"]["01. symbol"];
+  var tickerPrice = data["Global Quote"]["05. price"];
+  var tickerOpen = data["Global Quote"]["02. open"];
+  var tickerHigh = data["Global Quote"] 
+  var tickerLow  = data["Global Quote"]
+  var tickerPercent = data["Global Quote"]
+  console.log(tickerSymbol);
+
+  var newTicker = document.createElement('td');
+  var newPrice = document.createElement('td');
+  
+  newTicker.appendChild(document.createTextNode(tickerSymbol));
+  newPrice.appendChild(document.createTextNode(tickerPrice));
+  
+  
+  
   itemList.appendChild(newTicker);
+  itemList.appendChild(newPrice);
+
+
   //itemList.appendChild(newPrice);
 }
 
