@@ -16,8 +16,6 @@ var button = document.getElementById('track-btn').addEventListener('click', butt
 
  
 function buttonClick(e){
-  var cards = document.getElementById("card-div");
-  
   e.preventDefault();
   var newItem = document.getElementById('ticker').value;
   test(newItem);
@@ -26,7 +24,7 @@ function buttonClick(e){
 
 
 function test(ticker){
-    //var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/103b07ef04d782146176e5e9f5408e46/"+ latitude + "," +longitude;
+
     var url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="+ticker+"&interval=5min&apikey=GADBOCMLVZQZV9IS";
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
@@ -39,8 +37,6 @@ function test(ticker){
         console.log("Entered the function");
         renderData(data);
       }
-      //console.log(data["Global Quote"]["01. symbol"]);
-      //globalData = data;
      }
     else{
       console.log("Error");
@@ -53,13 +49,15 @@ function test(ticker){
 }
 
 
-/*Good practice to separate data and have a separate function
-  render the data */
+
+/*Renders the data from the JSON request*/
+
 function renderData(data){
 
   var tickerSymbol = data["Global Quote"]["01. symbol"];
 
   var tickerPrice = "$" + data["Global Quote"]["05. price"];
+  /*Slices the last two digits*/
   tickerPrice = tickerPrice.slice(0,-2);
 
   var tickerOpen ="$" + data["Global Quote"]["02. open"];
