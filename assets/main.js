@@ -88,24 +88,46 @@ function renderData(data){
 
   itemList.appendChild(newTicker);*/
 
+
   var tickerSymbol = data["Global Quote"]["01. symbol"];
-  var tickerPrice = data["Global Quote"]["05. price"];
-  var tickerOpen = data["Global Quote"]["02. open"];
-  var tickerHigh = data["Global Quote"] 
-  var tickerLow  = data["Global Quote"]
-  var tickerPercent = data["Global Quote"]
-  console.log(tickerSymbol);
+  var tickerPrice = "$" + data["Global Quote"]["05. price"];
+  tickerPrice = tickerPrice.slice(0,-2);
+  var tickerOpen ="$" + data["Global Quote"]["02. open"];
+  tickerOpen = tickerOpen.slice(0,-2);
+  var tickerHigh = "$" + data["Global Quote"]["03. high"]; 
+  tickerHigh = tickerHigh.slice(0,-2);
+  var tickerLow  = "$" + data["Global Quote"]["04. low"];
+  tickerLow = tickerLow.slice(0,-2);
+  var tickerPercent = data["Global Quote"]["10. change percent"];
+ 
+
+
+  var newRow = document.createElement('tr')
 
   var newTicker = document.createElement('td');
   var newPrice = document.createElement('td');
+  var newOpen = document.createElement('td');
+  var newLow = document.createElement('td');
+  var newHigh = document.createElement('td');
+  var newPercent = document.createElement('td');
+
   
   newTicker.appendChild(document.createTextNode(tickerSymbol));
   newPrice.appendChild(document.createTextNode(tickerPrice));
+  newOpen.appendChild(document.createTextNode(tickerOpen));
+  newLow.appendChild(document.createTextNode(tickerLow));
+  newHigh.appendChild(document.createTextNode(tickerHigh));
+  newPercent.appendChild(document.createTextNode(tickerPercent)); 
   
   
-  
-  itemList.appendChild(newTicker);
-  itemList.appendChild(newPrice);
+  newRow.appendChild(newTicker);
+  newRow.appendChild(newPrice);
+  newRow.appendChild(newOpen);
+  newRow.appendChild(newLow);
+  newRow.appendChild(newHigh);
+  newRow.appendChild(newPercent);
+
+  itemList.appendChild(newRow);
 
 
   //itemList.appendChild(newPrice);
