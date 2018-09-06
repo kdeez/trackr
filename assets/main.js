@@ -72,45 +72,36 @@ function test(ticker){
 /*Good practice to separate data and have a separate function
   render the data */
 function renderData(data){
-  //console.log(data);
- /* 
-  var newTicker = document.createElement('tr');
-  newTicker.className = 'list-group-item';
-
-  //var newPrice = document.createElement('span');
-  var tickerPrice = data["Global Quote"]["05. price"];
-
-
-  newTicker.appendChild(document.createTextNode(tickerSymbol));
-  //newPrice.appendChild(document.createTextNode(tickerPrice));
-
-
-
-  itemList.appendChild(newTicker);*/
-
 
   var tickerSymbol = data["Global Quote"]["01. symbol"];
+
   var tickerPrice = "$" + data["Global Quote"]["05. price"];
   tickerPrice = tickerPrice.slice(0,-2);
+
   var tickerOpen ="$" + data["Global Quote"]["02. open"];
   tickerOpen = tickerOpen.slice(0,-2);
+
   var tickerHigh = "$" + data["Global Quote"]["03. high"]; 
   tickerHigh = tickerHigh.slice(0,-2);
+
   var tickerLow  = "$" + data["Global Quote"]["04. low"];
   tickerLow = tickerLow.slice(0,-2);
+
   var tickerPercent = data["Global Quote"]["10. change percent"];
   tickerPercent = tickerPercent.slice(0,5) + "%";
 
 
   var newRow = document.createElement('tr')
-
   var newTicker = document.createElement('td');
   
+
  if(tickerPercent[0] == "-"){
-  tickerPrice.className = 
+  console.log("Entered the function");
+  newRow.style.color = "#FF5252";
 }
  else{
-  newTicker.className = "bg-success";
+  newRow.style.color = "#69F0AE";
+
  }
 
   var newPrice = document.createElement('td');
