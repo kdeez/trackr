@@ -18,28 +18,12 @@ var button = document.getElementById('track-btn').addEventListener('click', butt
 function buttonClick(e){
   var cards = document.getElementById("card-div");
   
-  /*if(cards){
-    if(cards.className == 'card mt-5 hidden'){
-      cards.className = 'card mt-5 unhide';
-    }
-  }*/
-
   e.preventDefault();
   var newItem = document.getElementById('ticker').value;
   test(newItem);
-
-  /*var newTicker = document.createElement('li');
-  newTicker.className = 'list-group-item';
-  newTicker.appendChild(document.createTextNode(newItem));
-  itemList.appendChild(newTicker);*/
+  document.getElementById('ticker').value = "";
 }
 
-/*
-function call(){
-  var input = document.getElementById("ticker").value;
-  test(input);
-
-}*/
 
 function test(ticker){
     //var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/103b07ef04d782146176e5e9f5408e46/"+ latitude + "," +longitude;
@@ -102,6 +86,8 @@ function renderData(data){
  else{
   newRow.style.color = "#69F0AE";
 }
+
+
 
   var newPrice = document.createElement('td');
   var newOpen = document.createElement('td');
