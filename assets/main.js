@@ -94,15 +94,14 @@ function renderData(data){
   var newRow = document.createElement('tr')
   var newTicker = document.createElement('td');
   
-
+  console.log("Entered the function");
  if(tickerPercent[0] == "-"){
   console.log("Entered the function");
   newRow.style.color = "#FF5252";
-}
+  }
  else{
   newRow.style.color = "#69F0AE";
-
- }
+}
 
   var newPrice = document.createElement('td');
   var newOpen = document.createElement('td');
