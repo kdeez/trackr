@@ -99,12 +99,20 @@ function renderData(data){
   var tickerLow  = "$" + data["Global Quote"]["04. low"];
   tickerLow = tickerLow.slice(0,-2);
   var tickerPercent = data["Global Quote"]["10. change percent"];
- 
+  tickerPercent = tickerPercent.slice(0,5) + "%";
 
 
   var newRow = document.createElement('tr')
 
   var newTicker = document.createElement('td');
+  
+ if(tickerPercent[0] == "-"){
+  tickerPrice.className = 
+}
+ else{
+  newTicker.className = "bg-success";
+ }
+
   var newPrice = document.createElement('td');
   var newOpen = document.createElement('td');
   var newLow = document.createElement('td');

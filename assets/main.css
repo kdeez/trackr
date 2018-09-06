@@ -4,6 +4,10 @@
     background-color:transparent;
 }
 
+body{
+    background-color: #212121;
+}
+
 .hidden{
     display:none;
 }
